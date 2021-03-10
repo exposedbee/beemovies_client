@@ -48,9 +48,15 @@ function NavigationBarComponent({setSignedOut, profile, setProfile, token}) {
             <AppBar className={container} style={{ background: '#2E3B55' }}>
                 <Toolbar>
                 <Grid container direction={"row"} alignItems={"center"} wrap={"nowrap"} spacing={3}>
-                    <Grid item>
-                        <Typography variant={"subtitle1"} component={"h1"}
-                                    onClick={() => handleHomeClick()}>BeeMovies</Typography>
+                    <Grid item container direction={'row'} justify={"flex-start"} alignItems={"center"} spacing={2}>
+                        <Grid item>
+                            <Typography variant={"subtitle1"} component={"h1"}
+                                        onClick={() => handleHomeClick()}>BeeMovies</Typography>
+                        </Grid>
+                        <Grid item>
+                            <Button variant={"outlined"} onClick={()=>handleHomeClick()} color={"primary"} className={signOutCard}>Home</Button>
+                        </Grid>
+
                     </Grid>
 
                     <Grid item container direction={"row"} justify={"flex-end"} alignItems={"center"}>

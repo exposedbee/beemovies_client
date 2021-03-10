@@ -54,7 +54,7 @@ export function MovieDetailCardComponent({currentMovie}) {
     const [ratingVal, setRatingVal] = useState(0);
     const [ratingValMain, setRatingValMain] = useState(0);
     const history = useHistory();
-    const [movieDate,setMovieDate]= useState("");
+    const [movieDate,setMovieDate]= useState();
     const [movieType, setMovieType] = useState("");
 
 
@@ -67,13 +67,15 @@ export function MovieDetailCardComponent({currentMovie}) {
                         setRatingVal(parseInt(res.rating));
                         setRatingValMain(parseInt(res.rating))
                         setRatingComment(res.commentContent);
-                        setMovieDate(currentMovie.releaseDate.slice(0, 10))
-                        setMovieType(genra());
                     }
                 }
             })
         if(currentMovie._id ===undefined){
             history.push('/home')
+        }
+        else{
+            setMovieDate(currentMovie.releaseDate.slice(0, 10))
+            setMovieType(genra());
         }
     }, []);
 
